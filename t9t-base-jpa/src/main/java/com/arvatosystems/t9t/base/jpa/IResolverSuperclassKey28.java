@@ -26,12 +26,12 @@ import de.jpaw.bonaparte.pojos.api.TrackingBase;
  * If the JPA entity is extended as part of customization, the base interface will stay untouched, but its implementation must point
  * to a customized resolver, inheriting the base resolver.
  */
-public interface IResolverSuperclassKey<
+public interface IResolverSuperclassKey28<
     REF extends BonaPortable,
     KEY extends REF,
     TRACKING extends TrackingBase,
     ENTITY extends BonaPersistableKey<KEY> & BonaPersistableTracking<TRACKING>
-    > extends IResolverAnyKey<KEY, TRACKING, ENTITY> {
+    > extends IResolverAnyKey28<KEY, TRACKING, ENTITY> {
 
     ENTITY getEntityData(REF entityRef, boolean onlyActive);
 }

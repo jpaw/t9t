@@ -15,6 +15,8 @@
  */
 package com.arvatosystems.t9t.base.jpa;
 
+import java.io.Serializable;
+
 import com.arvatosystems.t9t.base.T9tException;
 
 import de.jpaw.bonaparte.core.BonaPortable;
@@ -28,12 +30,12 @@ import de.jpaw.bonaparte.pojos.api.TrackingBase;
  * If the JPA entity is extended as part of customization, the base interface will stay untouched, but its implementation must point
  * to a customized resolver, inheriting the base resolver.
  */
-public interface IResolverNewCompositeKey<
+public interface IResolverCompositeKey28<
     REF extends BonaPortable,
-    KEY extends REF,
+    KEY extends Serializable,  // can be removed!
     TRACKING extends TrackingBase,
     ENTITY extends BonaPersistableKey<KEY> & BonaPersistableTracking<TRACKING>
-    > extends IResolverAnyKey<KEY, TRACKING, ENTITY> {
+    > extends IResolverAnyKey28<KEY, TRACKING, ENTITY> {
 
     /** Return the full JPA entity for any given relevant key.
      * Returns null if the parameter entityRef is null.
@@ -45,5 +47,5 @@ public interface IResolverNewCompositeKey<
      * @return ENTITY
      * @throws T9tException
      */
-    ENTITY getEntityData(KEY entityRef, boolean onlyActive);
+    ENTITY getEntityData(REF entityRef, boolean onlyActive);
 }

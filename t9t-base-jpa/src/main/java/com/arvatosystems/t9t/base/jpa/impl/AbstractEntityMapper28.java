@@ -24,7 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.arvatosystems.t9t.base.T9tException;
-import com.arvatosystems.t9t.base.jpa.IEntityMapper;
+import com.arvatosystems.t9t.base.jpa.IEntityMapper28;
 import com.arvatosystems.t9t.base.output.OutputSessionParameters;
 import com.arvatosystems.t9t.base.search.ReadAll28Response;
 import com.arvatosystems.t9t.base.search.SearchCriteria;
@@ -43,10 +43,10 @@ import de.jpaw.bonaparte.pojos.api.TrackingBase;
 import de.jpaw.dp.Jdp;
 import de.jpaw.dp.Provider;
 
-/** base implementation of the IEntityMapper interface, only suitable for simple configuration data tables */
-public abstract class AbstractEntityMapper<KEY extends Serializable, DTO extends BonaPortable, TRACKING extends TrackingBase, ENTITY extends BonaPersistableKey<KEY> & BonaPersistableTracking<TRACKING>> implements IEntityMapper<KEY, DTO, TRACKING, ENTITY> {
+/** base implementation of the IEntityMapper28 interface, only suitable for simple configuration data tables */
+public abstract class AbstractEntityMapper28<KEY extends Serializable, DTO extends BonaPortable, TRACKING extends TrackingBase, ENTITY extends BonaPersistableKey<KEY> & BonaPersistableTracking<TRACKING>> implements IEntityMapper28<KEY, DTO, TRACKING, ENTITY> {
     static private final String SEARCH_PREFIX_PROPERTY = "searchprefix";
-    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractEntityMapper.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractEntityMapper28.class);
 
     //@Inject
     protected final Provider<PersistenceProviderJPA> jpaContextProvider = Jdp.getProvider(PersistenceProviderJPA.class);
