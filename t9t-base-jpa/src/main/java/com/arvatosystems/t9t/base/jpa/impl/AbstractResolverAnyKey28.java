@@ -87,14 +87,6 @@ public abstract class AbstractResolverAnyKey28<
      * {@inheritDoc}
      */
     @Override
-    public Long getTenantRef(ENTITY e) {
-        return null;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public String getSharedTenantId() {
         return contextProvider.get().tenantMapping.getSharedTenantId(getRtti());
     }
@@ -104,13 +96,6 @@ public abstract class AbstractResolverAnyKey28<
      */
     @Override
     public void setTenantId(ENTITY e, String tenantId) {
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setTenantRef(ENTITY e, Long tenantRef) {
     }
 
     /**

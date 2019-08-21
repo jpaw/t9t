@@ -28,9 +28,5 @@ import de.jpaw.bonaparte.pojos.api.TrackingBase;
 public interface IResolverStringKey28<
     TRACKING extends TrackingBase,
     ENTITY extends BonaPersistableKey<String> & BonaPersistableTracking<TRACKING>
-    > extends IResolverAnyKey28<String, TRACKING, ENTITY> {
-
-    default ENTITY getEntityData(String entityRef, boolean onlyActive) {
-        return getEntityDataForKey(entityRef, onlyActive);
-    }
+  > extends IResolverAnyKey28<String, TRACKING, ENTITY>, IResolverStringKey<TRACKING, ENTITY> {
 }

@@ -50,7 +50,7 @@ public class AbstractLeanSearchRequestHandler28 <S extends LeanSearchRequest, E 
             // set common fields...
             d.setObjectRef(e.ret$Key());
             d.setIsActive(e.ret$Active());
-            d.setDifferentTenant(!ctx.tenantRef.equals(resolver.getTenantRef(e)));
+            d.setDifferentTenant(!ctx.tenantId.equals(resolver.getTenantId(e)));
             // guard for empty description
             if (d.getName() == null)
                 d.setName("?");

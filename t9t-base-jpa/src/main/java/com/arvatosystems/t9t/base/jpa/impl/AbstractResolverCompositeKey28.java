@@ -17,6 +17,7 @@ package com.arvatosystems.t9t.base.jpa.impl;
 
 import java.io.Serializable;
 
+import com.arvatosystems.t9t.base.T9tException;
 import com.arvatosystems.t9t.base.jpa.IResolverCompositeKey28;
 
 import de.jpaw.bonaparte.jpa.BonaPersistableKey;
@@ -56,4 +57,14 @@ public abstract class AbstractResolverCompositeKey28<
         return getEntityDataByGenericKey(resolveNestedRefs(entityRef), onlyActive);
     }
 
+    /** Convert any REF to a KEY (if supported). */
+    @Override
+    public KEY refToKey(REF arg) {
+        if (arg == null)
+            return null;
+        REF potentialKey = resolveNestedRefs(arg);
+        if (getKeyClass().isAssignableFrom(potentialKey.getClass()))
+            return (KEY)potentialKey;
+        throw new T9tException(T9tException.INVALID_REQUEST_PARAMETER_TYPE, potentialKey.getClass().getCanonicalName() + " is not a key for " + getEntityClass().getCanonicalName());
+    }
 }
